@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Roadmap Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesj.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Course Roadmap Generator</h1>
+            <p>Upload a syllabus file or enter course content to generate a personalized study roadmap</p>
+        </header>
+
+        <div class="input-section">
+            <div class="api-key-section">
+                <label for="apiKey">Gemini API Key:</label>
+                <input type="password" id="apiKey" placeholder="Enter your Gemini API key">
+                <small style="color: #666; font-size: 0.9rem;">Get your API key from <a href="https://aistudio.google.com/app/apikey" target="_blank">Google AI Studio</a></small>
+            </div>
+
+            <div class="upload-section">
+                <label for="fileUpload">Upload Syllabus File:</label>
+                <input type="file" id="fileUpload" accept=".txt,.pdf,.docx">
+                <div class="file-info" id="fileInfo"></div>
+            </div>
+
+            <div class="prompt-section">
+                <label for="promptInput">Or Enter Course Content:</label>
+                <textarea id="promptInput" placeholder="Enter course syllabus, objectives, or content here..."></textarea>
+            </div>
+
+            <button id="generateRoadmap" class="generate-btn">Generate Roadmap</button>
+        </div>
+
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Generating your personalized course roadmap...</p>
+        </div>
+
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <h2>Your Course Roadmap</h2>
+            <div id="roadmapContent"></div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='scriptj.js') }}"></script>
+</body>
+</html>
